@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary Meta Tags -->
+  <title>
+    <%= process.env.TITLE %>
+  </title>
+  <meta name="title" content="<%= process.env.TITLE %>" />
+  <meta name="description" content="<%= process.env.DESCRIPTION %>" />
+  <meta name="theme-color" content="<%= process.env.COLOR %>" />
+  <meta name="msapplication-TileColor" content="<%= process.env.COLOR %>" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= process.env.DOMAIN %>" />
+  <meta property="og:title" content="<%= process.env.TITLE %>" />
+  <meta property="og:description" content="<%= process.env.DESCRIPTION %>" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="<%= process.env.DOMAIN %>" />
+  <meta property="twitter:title" content="<%= process.env.TITLE %>" />
+  <meta property="twitter:description" content="<%= process.env.DESCRIPTION %>" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+    integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/css/tailwind.css" />
+
+</head>
+
+<body class="bg-ctp-base">
+  <header
+    class="sticky top-0  border-ctp-surface0/25 backdrop-blur-md border-b bg-ctp-surface0 opacity-70 overflow-hide sm:justify-start sm:flex-nowrap z-[48] w-full text-sm py-2.5 sm:py-4">
+    <nav class="flex basis-full justify-between  items-center w-full  px-2 sm:px-4 md:px-6" aria-label="Ambrosia Nav">
+      <div class="gap-3">
+        <h1 class="h1 text-2xl font-calsans text-ctp-pink">AmbrosiaCDN</h1>
+      </div>
+      <a
+        class="transition duration-200 text-[15px] text-center font-srcode text-ctp-text  cursor-pointer hover:-translate-y-2">
+        About
+      </a>
+
+      <div class="gap-2 flex items-center ">
+        <a href="/admin"
+          class="py-3 px-5 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg hover:duration-300 hover:delay-300 transition-all border-transparent bg-gradient-to-r hover:from-indigo-500 hover:to-indigo-600  disabled:opacity-50 disabled:pointer-events-none bg-ctp-surface1  dark:text-white ">
+          <p href="/admin" class="text-white">Login</p>
+        </a>
+      </div>
+    </nav>
+  </header>
+  <div class="flex justify-center mt-[16rem] mb-2">
+    <h1 class="font-calsans text-4xl text-ctp-text ">
+      <%= process.env.TITLE || "Ambrosia CDN" %>
+    </h1>
+  </div>
+  <div class="flex justify-center mb-[18rem]">
+    <h1 class="font-calsans  text-ctp-text/65 ">
+      Originally Made By N0ahMC | Improved by AmbrosiaGG
+    </h1>
+    <a class="rounded-full bg-ctp-surface1 p-2 flex justify-center mt-[5rem] absolute transition-all" href="#blog">
+    </a>
+  </div>
+
+  <h1 class="flex justify-center my-[3rem] font-calsans text-3xl text-ctp-text" id="blog">Blogs</h1>
+  <div class="grid grid-cols-3 p-2">
+    <div class="bg-ctp-surface0/50 p-5 rounded-md">
+      <div class="flex justify-between items-center">
+        <h1 class="font-calsans text-3xl text-ctp-pink/75 ">
+          Hosted
+        </h1>
+        <p class="font-calsans text-sm text-ctp-text mt-1.5">
+         3/10/24
+        </p>
+      </div>
+      <div class="text-ctp-text/65 font-srcode mt-2">
+       On the day of 3/10/24, Ambrosia CDN was offically online, taken from N0ahMC's GitHub Repo for a CDN, for Ambrosia
+       The writer (DuckeyDev) have been thinking of making AmbrosiaCDN into a CDN for public use!
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

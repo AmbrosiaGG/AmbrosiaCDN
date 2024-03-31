@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary Meta Tags -->
+  <title>
+    <%= process.env.TITLE %>
+  </title>
+  <meta name="title" content="<%= process.env.TITLE %>" />
+  <meta name="description" content="<%= process.env.DESCRIPTION %>" />
+  <meta name="theme-color" content="<%= process.env.COLOR %>" />
+  <meta name="msapplication-TileColor" content="<%= process.env.COLOR %>" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= process.env.DOMAIN %>" />
+  <meta property="og:title" content="<%= process.env.TITLE %>" />
+  <meta property="og:description" content="<%= process.env.DESCRIPTION %>" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="<%= process.env.DOMAIN %>" />
+  <meta property="twitter:title" content="<%= process.env.TITLE %>" />
+  <meta property="twitter:description" content="<%= process.env.DESCRIPTION %>" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+    integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/css/tailwind.css" />
+
+</head>
+
+<body class="bg-ctp-base">
+  <header
+    class="sticky top-0  border-ctp-surface0/25 backdrop-blur-md border-b bg-ctp-surface0 opacity-70 overflow-hide sm:justify-start sm:flex-nowrap z-[48] w-full text-sm py-2.5 sm:py-4">
+    <nav class="flex basis-full justify-between  items-center w-full  px-2 sm:px-4 md:px-6" aria-label="Ambrosia Nav">
+      <div class="gap-3">
+        <h1 class="h1 text-2xl font-calsans text-ctp-pink">AmbrosiaCDN</h1>
+      </div>
+      <a
+        class="transition duration-200 text-[15px] text-center font-srcode text-ctp-text  cursor-pointer hover:-translate-y-2">
+        About
+      </a>
+
+      <div class="gap-2 flex items-center ">
+        <a href="/admin"
+          class="py-3 px-5 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg hover:duration-300 hover:delay-300 transition-all border-transparent bg-gradient-to-r hover:from-indigo-500 hover:to-indigo-600  disabled:opacity-50 disabled:pointer-events-none bg-ctp-surface1  dark:text-white ">
+          <p href="/admin" class="text-white">Login</p>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto ">
+    <!-- Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <!-- Card -->
+      <div class="flex flex-col border shadow-sm rounded-xl bg-ctp-surface0/50 border-ctp-surface1/50">
+        <div class="p-4 md:p-5 flex justify-between gap-x-3">
+          <div>
+            <p class="text-xs uppercase tracking-wide text-ctp-pink">
+              Total Images
+            </p>
+            <div class="mt-1 flex items-center gap-x-1">
+              <h3 class="mt-2 text-2xl sm:text-3xl lg:text-4xl text-ctp-text/45 ">
+                <span class="font-semibold">
+                  <%= statistics.totalNb %>
+                </span>
+              </h3>
+            </div>
+          </div>
+          <div
+            class="flex-shrink-0 flex justify-center items-center w-[46px] h-[46px] bg-blue-600 text-white rounded-full dark:bg-blue-900 dark:text-blue-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-activity">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </div>
+        </div>
+
+      </div>
+      <!-- End Card -->
+
+      <!-- Card -->
+      <div class="flex flex-col border shadow-sm rounded-xl bg-ctp-surface0/50 border-ctp-surface1/50">
+        <div class="p-4 md:p-5 flex justify-between gap-x-3">
+          <div>
+            <p class="text-xs uppercase tracking-wide text-ctp-pink">
+              Total Space Used
+            </p>
+            <div class="mt-1 flex items-center gap-x-1">
+              <h3 class="mt-2 text-2xl sm:text-3xl lg:text-4xl text-ctp-text/45 ">
+                <%= statistics.totalSize %>
+              </h3>
+            </div>
+          </div>
+          <div
+            class="flex-shrink-0 flex justify-center items-center w-[46px] h-[46px] bg-blue-600 text-white rounded-full dark:bg-blue-900 dark:text-green-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-heart-pulse">
+              <path
+                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" />
+            </svg>
+          </div>
+        </div>
+
+
+      </div>
+      <!-- End Card -->
+
+      <!-- Card -->
+      <div class="flex flex-col border shadow-sm rounded-xl bg-ctp-surface0/50 border-ctp-surface1/50">
+        <div class="p-4 md:p-5 flex justify-between gap-x-2">
+          <div>
+            <p class="text-xs uppercase tracking-wide text-ctp-pink">
+              Last Upload Date
+            </p>
+            <div class="mt-1 flex items-center gap-x-1">
+              <h3 class="mt-2 text-2xl sm:text-3xl lg:text-4xl text-ctp-text/45 ">
+                <%= statistics.mostRecentUpload %>
+              </h3>
+            </div>
+          </div>
+          <div
+            class="flex-shrink-0 flex justify-center items-center w-[46px] h-[46px] bg-blue-600 text-white rounded-full dark:bg-blue-900 dark:text-red-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-heart-pulse">
+              <path
+                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!-- End Card -->
+
+    </div>
+    <!-- End Grid -->
+    <div class="grid grid-cols-3 mt-4">
+      <% for(var i=0; i < images.length; i++) { %>
+        <div class="bg-ctp-surface0 p-2 rounded-md">
+          <div class="flex justify-between items-center">
+            <a class="text-ctp-text text-s font-calsans hover:text-ctp-blue transition-colors" href="<%= process.env.DOMAIN %>/<%= images[i].fullPath %>">
+              <%= images[i].fullPath %>
+            </a>
+            <h1 class="text-ctp-text text-s font-calsans">
+              <%= statistics.totalSize %>
+            </h1>
+            <h1 class="text-ctp-text text-s font-calsans">
+              <%= images[i].date %>
+            </h1>
+          </div>
+          <div class="rounded-md bg-ctp-surface1 p-2 ">
+            <img src="<%= process.env.DOMAIN %>/image//<%= images[i].fullPath %>" class="w-full h-full" width="full" height="max">
+
+            </img>
+          </div>
+        </div>
+        <% } %>
+    </div>
+  </div>
+
+</body>
+
+</html>
