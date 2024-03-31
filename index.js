@@ -187,7 +187,7 @@ fastify.get("/:image", (req, res) => {
   }
 });
 
-fastify.listen(process.env.PORT, (err) => {
+fastify.listen(process.env.PORT, '0.0.0.0', (err, address) => {
   if (err) {
     throw new Error(err);
   }
@@ -195,6 +195,6 @@ fastify.listen(process.env.PORT, (err) => {
     "\x1b[32m",
     "[READY]",
     "\x1b[0m",
-    `ImageWebServer running on ${process.env.DOMAIN}, using port ${process.env.PORT}!`
+    `ImageWebServer running on ${process.env.DOMAIN}, using port ${process.env.PORT}! ${address}`
   );
 });
