@@ -10,5 +10,5 @@
 @tailwind utilities;
 
 body {
-    @apply transition-colors duration-150 bg-ctp-base;
+    @apply transition-all duration-150 bg-ctp-base;
 }

@@ -276,22 +276,19 @@
             >
               <div class="p-4 md:p-5">
                 <div class="flex items-center gap-x-2">
-                  <a
+                  <p
                     class="text-xs tracking-wide uppercase underline text-ctp-blue"
-                    href="https://cdn.ambrosia.gg/images/imblue.jpg"
                   >
                     Upload a File
-                  </a>
+                  </p>
                 </div>
-                <form id="uploadForm" enctype="multipart/form-data">
-                  <input
-                    type="file"
-                    id="fileInput"
-                    class="hover:bg-ctp-surface1 w-full h-full mt-2 rounded-md"
-                    name="file"
-                  />
-                  <button type="submit">Submit</button>
-                </form>
+                <div
+                  id="drop-area"
+                  class="bg-ctp-surface1 w-full h-full mt-2 p-2 rounded-md text-ctp-text"
+                  name="file"
+                >
+                  <span id="yeehaw">Drag 'N Drop</span> 
+                </div>
               </div>
             </div>
           </div>
@@ -300,40 +297,79 @@
     </main>
     <!-- ========== END MAIN CONTENT ========== -->
     <script>
-        const form = document.getElementById('uploadForm');
-        const fileInput = document.getElementById('fileInput');
-    
-        form.addEventListener('submit', function(event) {
-          event.preventDefault();
-    
-          const formData = new FormData();
-          formData.append('file', fileInput.files[0]);
-    
-          const headers = new Headers();
-          headers.append('name', '<%=name%>');
-          headers.append('password', '<%=pass%>');
+      // ai fixed my kode
+      const dropArea = document.getElementById("drop-area");
 
-          fetch('/api/upload', {
-            method: 'POST',
-            headers: headers,
-            body: formData
-          })
-          .then(response => {
+      ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
+        dropArea.addEventListener(eventName, preventDefaults, false);
+      });
+
+      function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      ["dragenter", "dragover"].forEach((eventName) => {
+        dropArea.addEventListener(eventName, highlight, false);
+      });
+
+      ["dragleave", "drop"].forEach((eventName) => {
+        dropArea.addEventListener(eventName, unhighlight, false);
+      });
+
+      function highlight() {
+        dropArea.classList.add("drag");
+      }
+
+      function unhighlight() {
+        dropArea.classList.remove("drag");
+      }
+
+      dropArea.addEventListener("drop", handleDrop, false);
+
+      function handleDrop(e) {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+
+        handleFiles(files);
+      }
+
+      function handleFiles(files) {
+        files = [...files];
+        files.forEach(uploadFile);
+      }
+
+      function uploadFile(file) {
+        const formData = new FormData();
+        formData.append("file", file);
+
+        const headers = new Headers();
+        headers.append("name", "<%=name%>");
+        headers.append("password", "<%=pass%>");
+
+        fetch("/api/upload", {
+          method: "POST",
+          body: formData,
+          headers: headers,
+        })
+          .then((response) => {
             if (!response.ok) {
-              throw new Error('Network response was not ok');
+              throw new Error("Network response was not ok");
             }
-            return response.json();
+            return response.blob();
           })
-          .then(data => {
-            // Handle response data
-            console.log(data);
+          .then((blob) => {
+            // Handle successful response
+            console.log("File uploaded successfully:", file.name);
+            const yeehaw = document.getElementById('yeehaw') 
+            yeehaw.innerHTML = "File "+file.name+" uploaded successfully"
+
           })
-          .catch(error => {
-            // Handle errors
-            console.error('There was a problem with the upload:', error);
+          .catch((error) => {
+            // Handle error
+            console.error("There was a problem with the upload:", error);
           });
-        });
-      </script>
-    
+      }
+    </script>
   </body>
 </html>
