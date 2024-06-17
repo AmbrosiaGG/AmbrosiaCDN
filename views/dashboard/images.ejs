@@ -1,375 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('../components/header.ejs') %>
-  </head>
 
-  <body
-    class="mocha bg-ctp-base backdrop-filter bg-no-repeat scroll-smooth backdrop-blur-md transform-gpu"
-    id="bg"
-  >
-    <!-- ========== HEADER ========== -->
-    <header
-      class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-ctp-crust border-b border-ctp-surface1 text-sm py-2.5 sm:py-4"
-    >
-      <nav
-        class="max-w-7xl flex basis-full items-center w-full mx-auto px-4 sm:px-6 lg:px-8"
-        aria-label="Global"
-      >
-        <div class="me-5 md:me-8">
-          <a
-            class="flex-none text-xl font-semibold baloo mt-1 text-ctp-text"
-            href="#"
-            aria-label="Brand"
-            ><%= title %></a
-          >
+<head>
+  <%- include('../components/header.ejs') %>
+</head>
+
+<body class="mocha bg-ctp-base backdrop-filter bg-no-repeat scroll-smooth backdrop-blur-md transform-gpu" id="bg">
+  <!-- ========== HEADER ========== -->
+  <header
+    class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-ctp-crust border-b border-ctp-surface1 text-sm py-2.5 sm:py-4">
+    <nav class="max-w-7xl flex basis-full items-center w-full mx-auto px-4 sm:px-6 lg:px-8" aria-label="Global">
+      <div class="me-5 md:me-8">
+        <a class="flex-none text-xl font-semibold baloo mt-1 text-ctp-text" href="#" aria-label="Brand">
+          <%= title %>
+        </a>
+      </div>
+
+      <div class="w-full flex items-center justify-end ms-auto sm:justify-between sm:gap-x-3 sm:order-3">
+        <div class="sm:hidden">
+          <button type="button"
+            class="inline-flex flex-shrink-0 justify-center items-center gap-2 size-[38px] rounded-full font-medium bg-white text-gray-700 align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-xs">
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+          </button>
         </div>
 
-        <div
-          class="w-full flex items-center justify-end ms-auto sm:justify-between sm:gap-x-3 sm:order-3"
-        >
-          <div class="sm:hidden">
-            <button
-              type="button"
-              class="inline-flex flex-shrink-0 justify-center items-center gap-2 size-[38px] rounded-full font-medium bg-white text-gray-700 align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-xs"
-            >
-              <svg
-                class="flex-shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
+        <div class="sm:block">
+          <label for="icon" class="sr-only">Search</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
+              <svg class="flex-shrink-0 size-4 text-ctp-text" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <circle cx="11" cy="11" r="8" />
                 <path d="m21 21-4.3-4.3" />
               </svg>
-            </button>
-          </div>
-
-          <div class="sm:block">
-            <label for="icon" class="sr-only">Search</label>
-            <div class="relative">
-              <div
-                class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4"
-              >
-                <svg
-                  class="flex-shrink-0 size-4 text-ctp-text"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="11" cy="11" r="8" />
-                  <path d="m21 21-4.3-4.3" />
-                </svg>
-              </div>
-              <input
-                type="text"
-                id="icon"
-                name="icon"
-                class="py-2 pe-4 ps-10 block w-full border-ctp-surface2 rounded-lg text-sm bg-ctp-overlay0/25 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                placeholder="Search"
-              />
             </div>
-          </div>
-
-          <div class="flex flex-row items-center justify-end gap-2">
-            <button
-              type="button"
-              class="hs-dropdown-toggle w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full text-ctp-text/55 hover:bg-ctp-overlay0/25 disabled:opacity-50 disabled:pointer-events-none"
-            >
-              <svg
-                class="flex-shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
-                <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              class="hs-dropdown-toggle w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full text-ctp-text/55 hover:bg-ctp-overlay0/25 disabled:opacity-50 disabled:pointer-events-none"
-              data-hs-offcanvas="#hs-offcanvas-right"
-            >
-              <svg
-                class="flex-shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-              </svg>
-            </button>
-
-            <div
-              class="hs-dropdown relative inline-flex"
-              data-hs-dropdown-placement="bottom-right"
-            >
-              <button
-                id="hs-dropdown-with-header"
-                type="button"
-                class="hs-dropdown-toggle w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-              >
-                <img
-                  class="inline-block size-[38px] rounded-full ring-2 ring-ctp-surface1"
-                  src="https://cdn.discordapp.com/avatars/845312519001342052/ad209fd629974989e27ce2ac4f51a97f.png?size=2048"
-                  alt="Image Description"
-                />
-              </button>
-
-              <div
-                class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 z-10 bg-ctp-surface0/55 shadow-md rounded-lg p-2 filter backdrop-blur-md"
-                aria-labelledby="hs-dropdown-with-header"
-              >
-                <div class="py-3 px-5 -m-2 bg-ctp-surface1 rounded-t-lg">
-                  <p class="text-sm text-gray-300">Signed in as</p>
-                  <p class="text-sm font-medium text-ctp-text"><%= name %></p>
-                </div>
-                <div class="mt-2 py-2 first:pt-0 last:pb-0">
-                  <a
-                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-ctp-text/65 hover:bg-ctp-surface1 focus:ring-2 focus:ring-blue-500"
-                    href="#"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide lucide-cloud-upload"
-                    >
-                      <path
-                        d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"
-                      />
-                      <path d="M12 12v9" />
-                      <path d="m16 16-4-4-4 4" />
-                    </svg>
-                    Admin
-                  </a>
-                  <a
-                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-ctp-text/65 hover:bg-ctp-surface1 focus:ring-2 focus:ring-blue-500"
-                    href="#"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide lucide-settings"
-                    >
-                      <path
-                        d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
-                      />
-                      <circle cx="12" cy="12" r="3" />
-                    </svg>
-                    Settings
-                  </a>
-                </div>
-              </div>
-            </div>
+            <input type="text" id="icon" name="icon"
+              class="py-2 pe-4 ps-10 block w-full border-ctp-surface2 rounded-lg text-sm bg-ctp-overlay0/25 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+              placeholder="Search" />
           </div>
         </div>
-      </nav>
-    </header>
-    <!-- ========== END HEADER ========== -->
 
-    <!-- ========== MAIN CONTENT ========== -->
-    <main id="content">
-      <!-- Nav -->
-      <nav
-        class="sticky -top-px bg-ctp-mantle text-sm font-medium text-ctp-text ring-opacity-5 border-t shadow-sm border-ctp-surface1 pt-6 md:pb-6 -mt-px"
-        aria-label="Jump links"
-      >
-        <div
-          class="max-w-7xl snap-x w-full flex items-center overflow-x-auto px-4 sm:px-6 lg:px-8 pb-4 md:pb-0 mx-auto [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300"
-        >
-          <div class="snap-center shrink-0 pe-5 sm:pe-8 sm:last-pe-0">
-            <a class="inline-flex items-center gap-x-2" href="#">Dashboard</a>
-          </div>
-          <div class="snap-center shrink-0 pe-5 sm:pe-8 sm:last:pe-0">
-            <a
-              class="inline-flex items-center gap-x-2 hover:text-ctp-text/75 transition-all font-bold"
-              href="/dashboard/images"
-              >Images</a
-            >
-          </div>
-          <div class="snap-center shrink-0 pe-5 sm:pe-8 sm:last:pe-0">
-            <a
-              class="inline-flex items-center gap-x-2 hover:text-ctp-text/75 transition-all"
-              href="/dashboard/texts"
-              >Texts</a
-            >
-          </div>
-          <div class="snap-center shrink-0 pe-5 sm:pe-8 sm:last:pe-0">
-            <a
-              class="inline-flex items-center gap-x-2 hover:text-ctp-text/75 transition-all"
-              href="#"
-            >
-              Documentation
-              <span
-                class="inline bg-ctp-maroon text-xs text-gray-700 font-semibold rounded-full py-1 px-2"
-                >v1</span
-              >
-            </a>
-          </div>
-        </div>
-      </nav>
-      <!-- End Nav -->
+        <div class="flex flex-row items-center justify-end gap-2">
+          <button type="button"
+            class="hs-dropdown-toggle w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full text-ctp-text/55 hover:bg-ctp-overlay0/25 disabled:opacity-50 disabled:pointer-events-none">
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+            </svg>
+          </button>
+          <button type="button"
+            class="hs-dropdown-toggle w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full text-ctp-text/55 hover:bg-ctp-overlay0/25 disabled:opacity-50 disabled:pointer-events-none"
+            data-hs-offcanvas="#hs-offcanvas-right">
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </button>
 
-      <div class="max-w-7xl min-h-[75rem] mx-auto py-10 px-4 sm:px-6 lg:px-8">
-        <div class="p-2 sm:p-4 space-y-2 sm:space-y-4">
-          <h1 class="font-calsans font-bold text-ctp-text text-2xl">Images</h1>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div class="hs-dropdown relative inline-flex" data-hs-dropdown-placement="bottom-right">
+            <button id="hs-dropdown-with-header" type="button"
+              class="hs-dropdown-toggle w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+              <img class="inline-block size-[38px] rounded-full ring-2 ring-ctp-surface1"
+                src="https://cdn.discordapp.com/avatars/845312519001342052/ad209fd629974989e27ce2ac4f51a97f.png?size=2048"
+                alt="Image Description" />
+            </button>
+
             <div
-              class="flex flex-col border shadow-sm rounded-xl bg-ctp-surface0 border-ctp-surface1"
-            >
-              <div class="p-4 md:p-5">
-                <div class="flex items-center gap-x-2">
-                  <a
-                    class="text-xs tracking-wide uppercase underline text-ctp-blue"
-                    href="https://cdn.ambrosia.gg/images/imblue.jpg"
-                  >
-                    imblue.jpg
-                  </a>
-                </div>
-                <img
-                  src="/files/admin/images/imblue.jpg"
-                  class="rounded-md mt-2"
-                />
+              class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 z-10 bg-ctp-surface0/55 shadow-md rounded-lg p-2 filter backdrop-blur-md"
+              aria-labelledby="hs-dropdown-with-header">
+              <div class="py-3 px-5 -m-2 bg-ctp-surface1 rounded-t-lg">
+                <p class="text-sm text-gray-300">Signed in as</p>
+                <p class="text-sm font-medium text-ctp-text">
+                  <%= name %>
+                </p>
               </div>
-            </div>
-            <div
-              class="flex flex-col border shadow-sm rounded-xl bg-ctp-surface0 border-ctp-surface1"
-            >
-              <div class="p-4 md:p-5">
-                <div class="flex items-center gap-x-2">
-                  <p
-                    class="text-xs tracking-wide uppercase underline text-ctp-blue"
-                  >
-                    Upload a File
-                  </p>
-                </div>
-                <div
-                  id="drop-area"
-                  class="bg-ctp-surface1 w-full h-full mt-2 p-2 rounded-md text-ctp-text"
-                  name="file"
-                >
-                  <span id="yeehaw">Drag 'N Drop</span> 
-                </div>
+              <div class="mt-2 py-2 first:pt-0 last:pb-0">
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-ctp-text/65 hover:bg-ctp-surface1 focus:ring-2 focus:ring-blue-500"
+                  href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-cloud-upload">
+                    <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+                    <path d="M12 12v9" />
+                    <path d="m16 16-4-4-4 4" />
+                  </svg>
+                  Admin
+                </a>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-ctp-text/65 hover:bg-ctp-surface1 focus:ring-2 focus:ring-blue-500"
+                  href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-settings">
+                    <path
+                      d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                  Settings
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </main>
-    <!-- ========== END MAIN CONTENT ========== -->
-    <script>
-      // ai fixed my kode
-      const dropArea = document.getElementById("drop-area");
+    </nav>
+  </header>
+  <!-- ========== END HEADER ========== -->
 
-      ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
-        dropArea.addEventListener(eventName, preventDefaults, false);
-      });
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content">
+    <!-- Nav -->
+    <nav
+      class="sticky -top-px bg-ctp-mantle text-sm font-medium text-ctp-text ring-opacity-5 border-t shadow-sm border-ctp-surface1 pt-6 md:pb-6 -mt-px"
+      aria-label="Jump links">
+      <div
+        class="max-w-7xl snap-x w-full flex items-center overflow-x-auto px-4 sm:px-6 lg:px-8 pb-4 md:pb-0 mx-auto [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
+        <div class="snap-center shrink-0 pe-5 sm:pe-8 sm:last-pe-0">
+          <a class="inline-flex items-center gap-x-2" href="#">Dashboard</a>
+        </div>
+        <div class="snap-center shrink-0 pe-5 sm:pe-8 sm:last:pe-0">
+          <a class="inline-flex items-center gap-x-2 hover:text-ctp-text/75 transition-all font-bold"
+            href="/dashboard/images">Images</a>
+        </div>
+        <div class="snap-center shrink-0 pe-5 sm:pe-8 sm:last:pe-0">
+          <a class="inline-flex items-center gap-x-2 hover:text-ctp-text/75 transition-all"
+            href="/dashboard/texts">Texts</a>
+        </div>
+        <div class="snap-center shrink-0 pe-5 sm:pe-8 sm:last:pe-0">
+          <a class="inline-flex items-center gap-x-2 hover:text-ctp-text/75 transition-all" href="#">
+            Documentation
+            <span class="inline bg-ctp-maroon text-xs text-gray-700 font-semibold rounded-full py-1 px-2">v1</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- End Nav -->
 
-      function preventDefaults(e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
+    <div class="max-w-7xl min-h-[75rem] mx-auto py-10 px-4 sm:px-6 lg:px-8">
+      <div class="p-2 sm:p-4 space-y-2 sm:space-y-4">
+        <div>
+          <h1 class="font-calsans font-bold text-ctp-text text-4xl">Images</h1>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
+          <div class="relative bg-ctp-surface0 border border-ctp-surface1 rounded-xl shadow-sm hover:cursor-pointer" id="drop-area">
+            <div class="overflow-hidden rounded-xl">
+              <img src="/assets/bgupload.jpg" class="object-cover w-full h-full"
+                alt="Image">
+            </div>
+            <div class="absolute inset-0 flex flex-col p-6 backdrop-blur bg-opacity-50 rounded-xl">
+              <div class="flex items-center">
+                <h1 class="text-ctp-pink text-2xl font-calsans font-bold ">
+                  Drag And Drop
+                </h1>
+                <div class="w-0.5 h-6 bg-gray-600 mx-2">
+                </div>
+                <h1 class="text-ctp-text text-lg font-calsans font-bold truncate" id="yeehaw">
+                  No File :(
+                </h1>
+              </div>
+            </div>
+          </div>
 
-      ["dragenter", "dragover"].forEach((eventName) => {
-        dropArea.addEventListener(eventName, highlight, false);
-      });
+          <% for(var i=0; i < images.length; i++) { %>
+            <script>
+              console.log("<%=images[i]%>");
+            </script>
 
-      ["dragleave", "drop"].forEach((eventName) => {
-        dropArea.addEventListener(eventName, unhighlight, false);
-      });
+            <div class="relative bg-ctp-surface0 border border-ctp-surface1 rounded-xl shadow-sm hover:cursor-pointer">
+              <div class="overflow-hidden rounded-xl">
+                <img src="/files/<%=name%>/images/<%= images[i].fullPath %>" class="object-cover w-full h-full"
+                  alt="Image">
+              </div>
+              <div class="absolute inset-0 flex flex-col p-6 bg-white/20 backdrop-blur-md bg-opacity-50 rounded-xl">
+                <div class="flex items-center">
+                  <h1 class="text-ctp-pink text-2xl font-calsans font-bold ">
+                    <%= images[i].fullPath %>
+                  </h1>
+                  <div class="w-0.5 h-6 bg-gray-600 mx-2">
+                  </div>
+                  <p class="text-white text-lg font-calsans font-bold ">
+                    <%= images[i].size %>
+                  </p>
+                  <div class="w-0.5 h-6 bg-gray-600 mx-2">
 
-      function highlight() {
-        dropArea.classList.add("drag");
-      }
+                  </div>
+                  <p class="text-white text-lg font-calsans font-bold ">
+                    <%= images[i].date %>
+                  </p>
 
-      function unhighlight() {
-        dropArea.classList.remove("drag");
-      }
+                </div>
+              </div>
+            </div>
+            <% } %>
 
-      dropArea.addEventListener("drop", handleDrop, false);
+         
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <script>
+    // ai fixed my kode
+    const dropArea = document.getElementById("drop-area");
 
-      function handleDrop(e) {
-        const dt = e.dataTransfer;
-        const files = dt.files;
+    ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
+      dropArea.addEventListener(eventName, preventDefaults, false);
+    });
 
-        handleFiles(files);
-      }
+    function preventDefaults(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
 
-      function handleFiles(files) {
-        files = [...files];
-        files.forEach(uploadFile);
-      }
+    ["dragenter", "dragover"].forEach((eventName) => {
+      dropArea.addEventListener(eventName, highlight, false);
+    });
 
-      function uploadFile(file) {
-        const formData = new FormData();
-        formData.append("file", file);
+    ["dragleave", "drop"].forEach((eventName) => {
+      dropArea.addEventListener(eventName, unhighlight, false);
+    });
 
-        const headers = new Headers();
-        headers.append("name", "<%=name%>");
-        headers.append("password", "<%=pass%>");
+    function highlight() {
+      dropArea.classList.add("drag");
+    }
 
-        fetch("/api/upload", {
-          method: "POST",
-          body: formData,
-          headers: headers,
+    function unhighlight() {
+      dropArea.classList.remove("drag");
+    }
+
+    dropArea.addEventListener("drop", handleDrop, false);
+
+    function handleDrop(e) {
+      const dt = e.dataTransfer;
+      const files = dt.files;
+
+      handleFiles(files);
+    }
+
+    function handleFiles(files) {
+      files = [...files];
+      files.forEach(uploadFile);
+    }
+
+    function uploadFile(file) {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const headers = new Headers();
+      headers.append("name", "<%=name%>");
+      headers.append("password", "<%=pass%>");
+
+      fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+        headers: headers,
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.blob();
         })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return response.blob();
-          })
-          .then((blob) => {
-            // Handle successful response
-            console.log("File uploaded successfully:", file.name);
-            const yeehaw = document.getElementById('yeehaw') 
-            yeehaw.innerHTML = "File "+file.name+" uploaded successfully"
+        .then((blob) => {
+          // Handle successful response
+          console.log("File uploaded successfully:", file.name);
+          const yeehaw = document.getElementById("yeehaw");
+          yeehaw.innerHTML = "File " + file.name + " uploaded successfully";
+        })
+        .catch((error) => {
+          // Handle error
+          console.error("There was a problem with the upload:", error);
+        });
+    }
+  </script>
+</body>
 
-          })
-          .catch((error) => {
-            // Handle error
-            console.error("There was a problem with the upload:", error);
-          });
-      }
-    </script>
-  </body>
 </html>

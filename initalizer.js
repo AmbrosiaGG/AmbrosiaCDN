@@ -4,7 +4,6 @@ import chalk from "chalk";
 const { exec } = require("child_process");
 const fs = require("fs");
 
-
 ( async ()  => {
 const userSchema = require("./mongoose/schema/user");
 
@@ -19,7 +18,7 @@ if (!await user) {
     chalk.yellow("[UserAccessManager]") + chalk.green(" did not find Admin account")
   );
 
-  const password = "changeme"
+  const password = require('./utilities/ranString')(15)
   fs.writeFile("./initialAdminPassword.txt", password, (err) => {
     if (err) {
       chalk.yellow("[FileSystem]") + chalk.red(" FAILED TO CREATE FILE ", err)

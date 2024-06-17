@@ -19,10 +19,11 @@
         <div class="me-5 md:me-8">
           <a
             class="flex-none text-xl font-semibold baloo mt-1 text-ctp-text"
-            href="#"
+            href="/"
             aria-label="Brand"
-            ><%= title %></a
           >
+            <%= title %>
+          </a>
         </div>
 
         <div
@@ -385,7 +386,10 @@
 
                 <div class="mt-1 flex items-center gap-x-2">
                   <h3 class="text-xl sm:text-2xl font-medium text-ctp-text">
-                    2KiB
+                    <% var sizeInKB =
+                    parseFloat(textstatistics.totalSize.replace(' KB', '')); %>
+                    <% var totalSize = sizeInKB + sizeInKB; %> 
+                    <%= totalSize.toFixed(2)%>KB
                   </h3>
                   <span class="flex items-center gap-x-1 text-ctp-red"> </span>
                 </div>
@@ -430,7 +434,7 @@
 
                 <div class="mt-1 flex items-center gap-x-2">
                   <h3 class="text-xl sm:text-2xl font-medium text-ctp-text">
-                    1
+                    -
                   </h3>
                 </div>
               </div>
@@ -438,253 +442,6 @@
             <!-- End Card -->
           </div>
           <!-- End Grid -->
-
-          <!-- Table Section -->
-          <div class="max-w-[85rem]">
-            <!-- Card -->
-            <div class="flex flex-col">
-              <div class="overflow-x-auto">
-                <div class="min-w-full inline-block align-middle">
-                  <div
-                    class="bg-ctp-surface0 border border-ctp-surface1 rounded-xl shadow-sm overflow-hidden"
-                  >
-                    <!-- Header -->
-                    <div
-                      class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-ctp-surface0"
-                    >
-                      <div>
-                        <h2 class="text-xl font-semibold text-ctp-text">
-                          Texts, Files, Redirects
-                        </h2>
-                        <p class="text-sm text-ctp-subtext0">
-                          Texts, FIles, and Redirects
-                        </p>
-                      </div>
-
-                      <div>
-                        <div class="inline-flex gap-x-2">
-                          <a
-                            class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-ctp-surface1 text-ctp-text hover:bg-ctp-surface1/55 border-ctp-surface2 transition-all disabled:opacity-50 disabled:pointer-events-none"
-                            href="#"
-                          >
-                            <svg
-                              class="flex-shrink-0 size-4"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path d="M5 12h14" />
-                              <path d="M12 5v14" />
-                            </svg>
-                            Create
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- End Header -->
-
-                    <!-- Table -->
-                    <table class="min-w-full divide-y divide-ctp-surface1">
-                      <thead class="bg-ctp-surface0">
-                        <tr class="divide-ctp-surface1">
-                          <th scope="col" class="ps-6 py-3 text-start">
-                            <label
-                              for="hs-at-with-checkboxes-main"
-                              class="flex"
-                            >
-                              <input
-                                type="checkbox"
-                                class="shrink-0 border-gray-300 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                                id="hs-at-with-checkboxes-main"
-                              />
-                              <span class="sr-only">Checkbox</span>
-                            </label>
-                          </th>
-
-                          <th scope="col" class="px-6 py-3 text-start">
-                            <div class="flex items-center gap-x-2">
-                              <span
-                                class="text-xs font-semibold uppercase tracking-wide text-ctp-subtext0"
-                              >
-                                Name
-                              </span>
-                            </div>
-                          </th>
-
-                          <th scope="col" class="px-6 py-3 text-start">
-                            <div class="flex items-center gap-x-2">
-                              <span
-                                class="text-xs font-semibold uppercase tracking-wide text-ctp-subtext0"
-                              >
-                                URL
-                              </span>
-                            </div>
-                          </th>
-
-                          <th scope="col" class="px-6 py-3 text-start">
-                            <div class="flex items-center gap-x-2">
-                              <span
-                                class="text-xs font-semibold uppercase tracking-wide text-ctp-subtext0"
-                              >
-                                Type
-                              </span>
-                            </div>
-                          </th>
-
-                          <th scope="col" class="px-6 py-3 text-start">
-                            <div class="flex items-center gap-x-2">
-                              <span
-                                class="text-xs font-semibold uppercase tracking-wide text-ctp-subtext0"
-                              >
-                                Created
-                              </span>
-                            </div>
-                          </th>
-
-                          <th scope="col" class="px-6 py-3 text-start">
-                            <div class="flex items-center gap-x-2">
-                              <span
-                                class="text-xs font-semibold uppercase tracking-wide text-ctp-subtext0"
-                              >
-                                Redirects To
-                              </span>
-                            </div>
-                          </th>
-
-                          <th scope="col" class="px-6 py-3 text-end"></th>
-                        </tr>
-                      </thead>
-
-                      <tbody class="divide-y divide-gray-200">
-                        <tr class="divide-ctp-surface1">
-                          <td class="size-px whitespace-nowrap">
-                            <div class="ps-6 py-3">
-                              <label for="hs-at-with-checkboxes-1" class="flex">
-                                <input
-                                  type="checkbox"
-                                  class="shrink-0 border-gray-300 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                                  id="hs-at-with-checkboxes-1"
-                                />
-                                <span class="sr-only">Checkbox</span>
-                              </label>
-                            </div>
-                          </td>
-
-                          <td class="size-px whitespace-nowrap">
-                            <div class="px-6 py-3">
-                              <span class="text-sm text-ctp-subtext0"
-                                >imblue.png</span
-                              >
-                            </div>
-                          </td>
-
-                          <td class="size-px whitespace-nowrap">
-                            <div class="px-6 py-3">
-                              <span
-                                class="text-sm text-ctp-blue underline hover:font-semibold transition-all"
-                                >cdn.ambrosia.gg/images/imblue.png</span
-                              >
-                            </div>
-                          </td>
-                          <td class="size-px whitespace-nowrap">
-                            <div class="px-6 py-3">
-                              <span class="text-sm text-ctp-subtext0"
-                                >Image</span
-                              >
-                            </div>
-                          </td>
-                          <td class="size-px whitespace-nowrap">
-                            <div class="px-6 py-3">
-                              <span class="text-sm text-ctp-subtext0"
-                                >Jan 1, 1970</span
-                              >
-                            </div>
-                          </td>
-                          <td class="size-px whitespace-nowrap">
-                            <div class="px-6 py-3">
-                              <span class="text-sm text-ctp-subtext0">-</span>
-                            </div>
-                          </td>
-                          <td class="size-px whitespace-nowrap">
-                            <div class="px-6 py-1.5">
-                              <div
-                                class="hs-dropdown [--placement:bottom-right] relative inline-block"
-                              >
-                                <button
-                                  id="hs-table-dropdown-1"
-                                  type="button"
-                                  class="hs-dropdown-toggle py-1.5 px-2 inline-flex justify-center items-center gap-2 rounded-lg text-ctp-subtext1 align-middle disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm"
-                                >
-                                  <svg
-                                    class="flex-shrink-0 size-4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                  >
-                                    <circle cx="12" cy="12" r="1" />
-                                    <circle cx="19" cy="12" r="1" />
-                                    <circle cx="5" cy="12" r="1" />
-                                  </svg>
-                                </button>
-                                <div
-                                  class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden divide-y divide-ctp-surface1 min-w-40 z-10 bg-ctp-surface0 shadow-2xl rounded-lg p-2 mt-2"
-                                  aria-labelledby="hs-table-dropdown-1"
-                                >
-                                  <div class="py-2 first:pt-0 last:pb-0">
-                                    <a
-                                      class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-ctp-subtext0 hover:bg-ctp-surface1 focus:ring-2 focus:ring-blue-500"
-                                      href="#"
-                                    >
-                                      Rename
-                                    </a>
-                                    <a
-                                      class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-ctp-subtext0 hover:bg-ctp-surface1 focus:ring-2 focus:ring-blue-500"
-                                      href="#"
-                                    >
-                                      Regenrate Key
-                                    </a>
-                                    <a
-                                      class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-ctp-subtext0 hover:bg-ctp-surface1 focus:ring-2 focus:ring-blue-500"
-                                      href="#"
-                                    >
-                                      Disable
-                                    </a>
-                                  </div>
-                                  <div class="py-2 first:pt-0 last:pb-0">
-                                    <a
-                                      class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-red-600 hover:bg-ctp-surface1 focus:ring-2 focus:ring-blue-500"
-                                      href="#"
-                                    >
-                                      Delete
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <!-- End Table -->
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- End Card -->
-          </div>
-          <!-- End Table Section -->
         </div>
       </div>
     </main>

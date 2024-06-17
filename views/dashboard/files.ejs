@@ -251,44 +251,66 @@
 
       <div class="max-w-7xl min-h-[75rem] mx-auto py-10 px-4 sm:px-6 lg:px-8">
         <div class="p-2 sm:p-4 space-y-2 sm:space-y-4">
-          <h1 class="font-calsans font-bold text-ctp-text text-2xl">Texts</h1>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            <div
-              class="flex flex-col border shadow-sm rounded-xl bg-ctp-surface0 border-ctp-surface1"
-            >
-              <div class="p-4 md:p-5">
-                <div class="flex items-center gap-x-2">
-                  <a
-                    class="text-xs tracking-wide uppercase underline text-ctp-blue"
-                  >
-                    text.txt
-                  </a>
+          <div>
+            <h1 class="font-calsans font-bold text-ctp-text text-4xl">Images</h1>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
+            <div class="relative bg-ctp-surface0 border border-ctp-surface1 rounded-xl shadow-sm hover:cursor-pointer" id="drop-area">
+              <div class="overflow-hidden rounded-xl">
+                <img src="/assets/bgupload.jpg" class="object-cover w-full h-full"
+                  alt="Image">
+              </div>
+              <div class="absolute inset-0 flex flex-col p-6 backdrop-blur bg-opacity-50 rounded-xl">
+                <div class="flex items-center">
+                  <h1 class="text-ctp-pink text-2xl font-calsans font-bold ">
+                    Drag And Drop
+                  </h1>
+                  <div class="w-0.5 h-6 bg-gray-600 mx-2">
+                  </div>
+                  <h1 class="text-ctp-text text-lg font-calsans font-bold truncate" id="yeehaw">
+                    No File :(
+                  </h1>
                 </div>
               </div>
             </div>
-            <div
-              class="flex flex-col border shadow-sm rounded-xl bg-ctp-surface0 border-ctp-surface1"
-            >
-              <div class="p-4 md:p-5">
-                <div class="flex items-center gap-x-2">
-                  <p
-                    class="text-xs tracking-wide uppercase underline text-ctp-blue"
-                  >
-                    Upload a text
-                  </p>
+  
+            <% for(var i=0; i < texts.length; i++) { %>
+              <script>
+                console.log("<%=texts[i]%>");
+              </script>
+  
+              <div class="relative bg-ctp-surface0 border border-ctp-surface1 rounded-xl shadow-sm hover:cursor-pointer">
+                <div class="overflow-hidden rounded-xl">
+                  <img src="/files/<%=name%>/images/<%= texts[i].fullPath %>" class="object-cover w-full h-full"
+                    alt="Image">
                 </div>
-                <div
-                  id="drop-area"
-                  class="bg-ctp-surface1 w-full h-[92%] my-2 p-2 pb-3 rounded-md text-ctp-text"
-                  name="file"
-                >
-                  <span id="yeehaw">Drag 'N Drop</span>
+                <div class="absolute inset-0 flex flex-col p-6 bg-white/20 backdrop-blur-md bg-opacity-50 rounded-xl">
+                  <div class="flex items-center">
+                    <h1 class="text-ctp-pink text-2xl font-calsans font-bold ">
+                      <%= texts[i].fullPath %>
+                    </h1>
+                    <div class="w-0.5 h-6 bg-gray-600 mx-2">
+                    </div>
+                    <p class="text-white text-lg font-calsans font-bold ">
+                      <%= texts[i].size %>
+                    </p>
+                    <div class="w-0.5 h-6 bg-gray-600 mx-2">
+  
+                    </div>
+                    <p class="text-white text-lg font-calsans font-bold ">
+                      <%= texts[i].date %>
+                    </p>
+  
+                  </div>
                 </div>
               </div>
-            </div>
+              <% } %>
+  
+           
           </div>
         </div>
       </div>
+  
     </main>
     <!-- ========== END MAIN CONTENT ========== -->
     <script>
