@@ -1,0 +1,3 @@
+FROM oven/bun
+WORKDIR /home/container
+COPY ../ /home/container

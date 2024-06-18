@@ -1,0 +1,5 @@
+.env
+initalAdminPassword.txt
+package-lock.json
+bun.lockb
+node_modules

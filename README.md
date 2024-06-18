@@ -1,15 +1,12 @@
-# ambrosiacdn
+# 📸 AmbrosiaCDN 
+AmbrosiaCDN is a web app which allows connection to [SHAREX](https://getsharex.com) Ambrosia supports text, images, and any other file format! 
 
-To install dependencies:
+A UI Beautifully crafted by me! Made with [tailwind](https://tailwindcss.com), [catpuccin](https://github.com/catppuccin/), and [preline js](https://preline.co)!
 
-```bash
-bun install
-```
-
-To run:
-
-```bash
-bun run index.js
-```
-
-This project was created using `bun init` in bun v1.1.12. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+# Features
+ * Multi User
+ * Any File Type
+ * Security
+ * Privacy
+ * Redirect URLS
+ 
